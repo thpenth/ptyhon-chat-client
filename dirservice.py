@@ -29,7 +29,8 @@ def start_directory_service(port):
         print(f"Directory Service is listening on port {port}.")
 
         while True:
-            conn, _ = server_socket.accept()
+            conn, addr = server_socket.accept()
+            print(f"Connection received from {addr[0]}:{addr[1]}")
             threading.Thread(target=client_handler, args=(conn,), daemon=True).start()
 
 if __name__ == '__main__':

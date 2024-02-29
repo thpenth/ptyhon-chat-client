@@ -54,7 +54,7 @@ def main(listen_port, user, target, directory_service=None):
     
     target_ip, target_port = target.split(':')
     while True:
-        message = input("You:")
+        message = input()
         send_message((target_ip, int(target_port)), json.dumps({'user': user, 'text': message}))
 
 if __name__ == '__main__':
